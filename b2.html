@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html> 
+	<head>
+		<link rel="stylesheet" type="text/css" href="estilob2.css"/>
+		<meta charset="utf-8">
+		<title>Janis's Store</title> 
+	</head>
+		<body>
+		
+			<div id="barraprincipal">
+				<h2>Janis's Store</h2>
+				<nav>  												<!-- aponta para uma secao com links de navegacao-->
+						<ul id="botoes">
+					<li><a href="sobrenos.html">Sobre Nós</a></li>
+					<li><a href="contatos.html">Contatos</a></li>
+					<li><a href="cadastro.html">Cadastro</a></li>
+					<li><a href="promocoes.html">Promocoes</a></li>
+					<li><a href="areadocliente">Area do Cliente</a></li>
+					<li><a href=carrinho.html>Carrinho</a></li>
+						</ul>
+				</nav>
+
+			</div>
+		
+
+			<div id="produtos">
+				<div id="carrinho">
+				<h2>Carrinho</h2>
+			</div>
+	
+			<script>
+	
+				const items = [
+				{
+						id: 0,
+						img: "camisetabobmascw.jpg",
+						nome: "Camiseta Masculina Bob Marley Branca",
+						preco1: "R$ 20,00",
+						preco2: 20.00,
+						quantidade: 0
+					},
+					{
+						id: 1,
+						img: "camisetagnrc.jpg",
+						nome: "Camiseta Feminina Guns 'n Roses Cinza",
+						preco1: "R$ 20,00",
+						preco2: 20.00,
+						quantidade: 0
+					},
+					{
+						id: 2,
+						img: "camisetamascqueenb.jpg",
+						nome: "Camiseta Masculina Queen Preta",
+						preco1: "R$ 20,00",
+						preco2: 20.00,
+						quantidade: 0
+					},
+					{
+						id: 3,
+						img: "camisetaqueena.jpg",
+						nome: "Camiseta Feminina Queen Amarela",
+						preco1: "R$ 20,00",
+						preco2: 20.00,
+						quantidade: 0
+					},
+					{
+						id: 4,
+						img: "camisetaqueenb.jpg",
+						nome: "Camiseta Feminina Queen Preta ",
+						preco1: "R$ 20,00",
+						preco2: 20.00,
+						quantidade: 0
+					},
+					{
+						id: 5,
+						img: "camisetarsb.jpg",
+						nome: "Camiseta Feminina The Rolling Stones Branca",
+						preco1: "R$ 20,00",
+						preco2: 20.00,
+						quantidade: 0
+					},
+					{
+						id: 6,
+						img: "camisetasexpistolsb.jpg",
+						nome: "Camiseta Feminina Sex Pistols Branca ",
+						preco1: "R$ 20,00",
+						preco2: 20.00,
+						quantidade: 0
+					},
+					{
+						id: 7,
+						img: "camisetatrsp.jpg",
+						nome: "Camiseta Feminina The Rolling Stones Preta",
+						preco1: "R$ 20,00",
+						preco2: 20.00,
+						quantidade: 0
+					},
+				
+				]
+				inicializarLoja = () => {
+                var containerProdutos = document.getElementById('produtos');  <!--inicia o meu Id produtos da linha 27 -->
+
+                items.map((val)=>{
+                    containerProdutos.innerHTML += `
+                    
+                    <div class="produto-single">
+                        <img src="`+val.img+`" />
+                        <p>`+val.nome+`</p>
+                        <a key="`+val.id+`" href="#">Comprar</a>
+                    </div>
+                    `;
+                })
+
+            }
+
+            inicializarLoja();
+
+
+            atualizarCarrinho = () => {
+                var containerCarrinho = document.getElementById('carrinho');            <!--inicia o id carrinho na linha 28-->
+
+                sessionStorage.items = JSON.stringify(items);                           <!--converte valores em JS para uma string JSON(notacao de objetos js)-->
+
+                containerCarrinho.innerHTML = "";                                       <!-- define ou obtém a sintaxe HTML descrevendo os elementos -->
+                items.map((val)=>{                                                      <!-- map em js  retorna o valor do item equivalente no array resultante-->
+                    if (val.quantidade > 0){
+                        containerCarrinho.innerHTML += `
+                        <p> Item:`+val.nome+` | Qtde:`+val.quantidade+` | `+preco2+` </p>
+                        <hr>
+                        `;
+                    }
+                })
+            }
+
+            var links = document.getElementsByTagName('a');
+
+            for(var i = 0; i < links.length; i++){  
+                links[i].addEventListener("click",function(){                           <!--addEventListener registra a espera de um evento-->
+                    let key = this.getAttribute('key');
+                    items[key].quantidade++;
+                    atualizarCarrinho();
+                    return false;
+                })
+            }
+
+ obj.atualizarCarrinho = function() {
+    var totalCar = 0;
+    for(var item in car) {
+      totalCar += car[item].preco2 * car[item].quantidade;
+    }
+    return Number(atualizarCarrinho.toFixed(2));
+  }
+
+
+
+  
+        </script>
+
+    </body>
+</html>
+		</body>                 
