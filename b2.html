@@ -27,6 +27,7 @@
 				<div id="carrinho">
 				<h2>Carrinho</h2>
 			</div>
+			<div id="total"></div>
 	
 			<script>
 	
@@ -106,6 +107,7 @@
                     <div class="produto-single">
                         <img src="`+val.img+`" />
                         <p>`+val.nome+`</p>
+                        <p>Preco: `+val.preco1+`</p>
                         <a key="`+val.id+`" href="#">Comprar</a>
                     </div>
                     `;
@@ -125,7 +127,7 @@
                 items.map((val)=>{                                                      <!-- map em js  retorna o valor do item equivalente no array resultante-->
                     if (val.quantidade > 0){
                         containerCarrinho.innerHTML += `
-                        <p> Item:`+val.nome+` | Qtde:`+val.quantidade+` | `+preco2+` </p>
+                        <p> Item:`+val.nome+` | Qtde:`+val.quantidade+` `+val.totalcar+` </p>
                         <hr>
                         `;
                     }
@@ -143,16 +145,14 @@
                 })
             }
 
- obj.atualizarCarrinho = function() {
-    var totalCar = 0;
+
+  totalCar = function() {
+    var totalcar = document.getElementsByTagName('a');
     for(var item in car) {
       totalCar += car[item].preco2 * car[item].quantidade;
     }
-    return Number(atualizarCarrinho.toFixed(2));
+    return Number(totalCar.toFixed(2));
   }
-
-
-
   
         </script>
 
