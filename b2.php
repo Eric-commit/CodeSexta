@@ -104,7 +104,8 @@
 
 <?php
 
-
+	if($_SESSION > 0){
+		
 	if(isset($_GET['adicionar'] )){
 		$id = (int) $_GET['adicionar'];
 		if(isset($items  [$id])){
@@ -115,9 +116,11 @@
 				$_SESSION['carrinho'][$id] = array('quantidade'=>1,'nome'=>$items[$id]['nome'],'preco'=>$items[$id]['preco']);
 			}
 			echo '<script> alert ("Item adicionado ao carrinho!")</script>';	
+}
+
 
 		}else{
-			die('Carrinho vazio.');
+			die('Seu carrinho esta vazio! compre algo :)');
 		}
 
 	}
@@ -136,9 +139,12 @@ foreach ($_SESSION['carrinho'] as $key => $value) {
 }
 
 ?>
-<a href="b2.php"><input type="submit" name="cancela" class="botao" value="Cancelar"></a>
+<a href="carrinho.php"><input type="submit" name="cancela" class="botao" value="Cancelar"></a>
+
+
 
 <a href="contatos.html" ><input type="submit" name="comprar" class="botao" value="Finalizar compra"></a>
+
 
 	<script type="text/javascript">
 
