@@ -105,8 +105,6 @@
 <?php
 
 
-
-
 	if(isset($_GET['adicionar'] )){
 		$id = (int) $_GET['adicionar'];
 		if(isset($items  [$id])){
@@ -136,7 +134,7 @@ foreach ($_SESSION['carrinho'] as $key => $value) {
 	echo '<p>Item: '.$value['nome'].' | Quantidade: '.$value['quantidade'].'|Total: '.($value['quantidade']*$value['preco']).'</p>';
 
 }
-session_destroy();
+
 ?>
 <a href="b2.php"><input type="submit" name="cancela" class="botao" value="Cancelar"></a>
 
@@ -149,3 +147,4 @@ session_destroy();
 
 </body>
 </html>
+
