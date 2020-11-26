@@ -138,7 +138,7 @@ foreach ($_SESSION['carrinho'] as $key => $value) {
 }
 session_destroy();
 ?>
-<a href="carrinho.php"><input type="submit" name="cancela" class="botao" value="Cancelar"></a>
+<a href="b2.php"><input type="submit" name="cancela" class="botao" value="Cancelar"></a>
 
 <a href="contatos.html" ><input type="submit" name="comprar" class="botao" value="Finalizar compra"></a>
 
