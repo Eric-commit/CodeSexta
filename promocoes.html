@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html> 
+	<head>
+		<link rel="stylesheet" type="text/css" href="./novo.css"/>
+		<meta charset="utf-8">
+		<title>Janis's Store</title> 
+	</head>
+		<body>
+		
+			<header class="barraprincipal">
+				<a href="./index.html" id="logo">Janis's Store</a>  
+				<nav>												<!-- aponta para uma secao com links de navegacao-->
+				<ul class="botoes">
+					<li><a href="sobrenos.html" class="links">Sobre Nós</a></li>
+					<li><a href="contatos.html" class="links">Contatos</a></li>
+					<li><a href="cadastro.html" class="links">Cadastro</a></li>
+					<li><a href="promocoes.html" class="links">Promocoes</a></li>
+					<li><a href="areadocliente.html" class="links">Area do Cliente</a></li>
+					<li><a href="carrinho.html" class="links">Carrinho</a></li>
+				</ul>
+				</nav>
+
+			</header>
+		<div id="promocoes">
+			<div id="textpromo">
+				<p>Promoções Janis's Store</p>
+				<p>Nas compras acima de R$150,00 o frete é gratis, vale a pena, não é ?!</p>
+			</div>
+		</div>
+			<div id="produtos">
+				<div id="carrinho"></div>
+			</div>
+			
+			<div id="caixa-de-compra">
+				<h2>Carrinho</h2>
+				<div id="comprar">Sem Produtos..</div>
+			</div>
+			
+			<button type="submit" id="comprar-pro"><a href="">Finalizar</p></button>
+				</html>
+		<script>
+			const items = [
+			{
+					id: 0,
+					img: "./img/camisetadavid.jpg",
+					nome: "Camiseta Unissex David Bowie Preta",
+					preco: 25,
+					amostra: "R$25,00",
+					quantidade: 0
+				},
+				{
+					id: 1,
+					img: "./img/camisetagoatshead.jpg",
+					nome: "Camiseta Unissex The Rolling Stones Goat Head Soup",
+					preco: 25,
+					amostra: "R$25,00",
+					quantidade: 0
+				},
+				{
+					id: 2,
+					img: "./img/camisetakurtcobain.jpg",
+					nome: "Camiseta Unissex Kurt Cobain",
+					preco: 25,
+					amostra: "R$25,00",
+					quantidade: 0
+				},
+				{
+					id: 3,
+					img: "./img/camisetaledzeppelin.jpg",
+					nome: "Camiseta Unissex Led Zeppelin",
+					preco: 25,
+					amostra: "R$25,00",
+					quantidade: 0
+				},
+				{
+					id: 4,
+					img: "./img/camisetamercury.jpg",
+					nome: "Camiseta Unissex Mercury ",
+					preco: 25,
+					amostra: "R$25,00",
+					quantidade: 0
+				},
+				{
+					id: 5,
+					img: "./img/camisetamonalisa.jpg",
+					nome: "Camiseta Unissex Monalisa Kiss",
+					preco: 25,
+					amostra: "R$25,00",
+					quantidade: 0
+				},
+				{
+					id: 6,
+					img: "./img/camisetamostarda.jpg",
+					nome: "Camiseta Freddie Mercury Mostarda ",
+					preco: 25,
+					amostra: "R$25,00",
+					quantidade: 0
+				},
+				{
+					id: 7,
+					img: "./img/camisetaqueenbrancm.jpg",
+					nome: "Camiseta Unissex Queen",
+					preco: 25,
+					amostra: "R$25,00",
+					quantidade: 0
+				},
+				{
+					id: 8,
+					img: "./img/camisetasomegirls.jpg",
+					nome: "Camiseta Unissex The Rolling Stones Some Girls",
+					preco: 25,
+					amostra: "R$25,00",
+					quantidade: 0
+				},
+				{
+					id: 9,
+					img: "./img/camisetatattoyou.jpg",
+					nome: "Camiseta Unissex The Rolling Stones Tatto You",
+					preco: 25,
+					amostra: "R$25,00",
+					quantidade: 0
+				},
+			
+				]
+				inicializarLoja = () => {
+                var containerProdutos = document.getElementById('produtos');  //<!--inicia o meu Id produtos da linha 27 -->
+
+                items.map((val)=>{
+                    containerProdutos.innerHTML += `
+                    
+                    <div>
+						<img src="`+val.img+`" class="produto"/>
+						<p>`+val.nome+`</p>
+						<p class= "valpreco"> `+val.amostra+`</p> 
+						<a key="`+val.id+`" class="in-comprar" href="#">Comprar</a>
+                    </div>
+                    `;
+                })
+
+            }
+
+		inicializarLoja();
+			
+			document.getElementById('carrinho').remove() 
+
+            atualizarCarrinho = () => {
+                var containerCarrinho = document.getElementById('comprar');           // <!--inicia o id carrinho na linha 28-->
+
+                sessionStorage.items = JSON.stringify(items);                          // <!--converte valores em JS para uma string JSON(notacao de objetos js)-->
+
+                containerCarrinho.innerHTML = "";                                      // <!-- define ou obtém a sintaxe HTML descrevendo os elementos -->
+                items.map((val)=>{                                                     // <!-- map em js  retorna o valor do item equivalente no array resultante-->
+                    if (val.quantidade > 0){
+                        containerCarrinho.innerHTML += `
+                        <p>Item: `+val.nome+` | Qtde:`+val.quantidade+` | Preco: R$`+val.quantidade * val.preco+`,00 </p>
+                        `;
+                    }
+                })
+            }
+
+            var links = document.getElementsByTagName('a');
+
+            for(var i = 0; i < links.length; i++){  
+                links[i].addEventListener("click",function(){                          // <!--addEventListener registra a espera de um evento-->
+                    let key = this.getAttribute('key');
+                    items[key].quantidade++;
+                    atualizarCarrinho();
+                    return false;
+                })
+            }
+  
+        </script>
+
+    </body>
+</html>
+		
