@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html> 
+	<head>
+		<link rel="stylesheet" type="text/css" href="./novo.css"/>
+		<meta charset="utf-8">
+		<title>Janis's Store</title> 
+	<script src="script-cadastro.js"></script>
+
+		
+
+
+	</head>
+		<body>
+		
+			<header class="barraprincipal">
+				<a href="./index.html" id="logo">Janis's Store</a>  
+				<nav>												<!-- aponta para uma secao com links de navegacao-->
+				<ul class="botoes">
+					<li><a href="sobrenos.html" class="links">Sobre Nós</a></li>
+					<li><a href="contatos.html" class="links">Contatos</a></li>
+					<li><a href="cadastro.html" class="links">Cadastro</a></li>
+					<li><a href="promocoes.html" class="links">Promocoes</a></li>
+					<li><a href="areadocliente.html" class="links">Area do Cliente</a></li>
+					<li><a href="carrinho.html" class="links">Carrinho</a></li>
+				</ul>
+				</nav>
+
+			</header>
+		<div id="formcadastro">
+					<form name="cadastrojanis" action="areadocliente.html" >
+						<center>
+							</br>
+							<p><b>Cadastro do cliente</b></p>
+							</br>
+				
+						</center>
+
+							<p class="nome">
+								<input type="text" id="nome" name="nome" placeholder="Ex: Antonio Souza" required="required">
+							</br>
+							</br>
+							</p>
+                       
+							<p class="email"> 
+								<input type="email" id="email" name="email" placeholder="Ex: antoniosouza@gmail.com" required="required">
+							</br>
+							</br>
+							</p>
+
+							<p class="cpf">
+								<input type="number" id="cpf" name="cpf" placeholder="xxx.xxx.xxx-xx" required="required">
+							</br>
+							</br>
+							</p>
+
+							<p class="Senha">
+								<input type="password" id="senha" name="senha" placeholder="Insira sua senha" required="required">
+							</br>
+						</br>
+						</br>
+								<input type="password" id="senha2" name="senha2" placeholder="Repita sua senha" required="required">
+							</br>
+							</br>
+							</br>
+							</p>
+
+							<p class="enviar">
+								<input type="submit" name="enviar" onclick="validar()" onclick="cadastro()" value="Enviar">
+							</p>
+					</form>
+				</div>
+			</body>
