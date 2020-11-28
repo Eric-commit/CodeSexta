@@ -1,3 +1,20 @@
+
+function validar() {
+
+  var s1 = cadastrojanis.senha.value;
+  var s2 = cadastrojanis.senha2.value;
+  if (s1 == s2) {
+    alert("Cadastrado com sucesso!");
+    return true;
+
+  } else {
+    alert("Senhas incorretas. Por favor verifique o valor digitado!");
+    document.cadastrojanis.senha2.focus();
+    return false;
+  }
+}
+
+   
 function cadastro() {
     addItem();
 }
@@ -17,18 +34,4 @@ function addItem() {
     sessionStorage.setItem('email', emailobj);
     sessionStorage.setItem('cpf', cpfobj);
     sessionStorage.setItem('senha', senhaobj);
-}
-
-function validar() {
-  var senha1 = document.getElementById("senha");
-  var senha2 = document.getElementById("senha2");
-  var s1 = senha1.value;
-  var s2 = senha2.value;
-  if (s1 == s2) {
-    alert("cadastrado com sucesso");
-    return true;
-  } else {
-    alert("Senhas incorretas. Por favor verifique o valor digitado!");
-    return false;
-  }
 }
